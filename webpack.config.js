@@ -1,5 +1,6 @@
 const path = require('path');
 const env = require('./env.js');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
     entry: {
@@ -9,5 +10,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'public/js/webpack-' + env.version),
         filename: '[name].js'
-    }
+    },
+    plugins: [
+        new UglifyJsPlugin()
+    ]
 };
