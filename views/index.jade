@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    ul
+        li(ng-repeat='d in route')
+            a(ng-bind="d.name" ng-href="{{d.url}}")
+    p(ng-bind="pageName")
+
+block javascript
+    script var pageData = {};
+    script(src='/js/webpack-#{env.version}/index.js')
