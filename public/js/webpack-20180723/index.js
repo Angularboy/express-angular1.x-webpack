@@ -65,25 +65,42 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-var app = angular.module("app", []);
+var _public = __webpack_require__(1);
 
-app.controller('appController', ['$scope', function ($scope) {
-    $scope.route = [
-        {
-            name: '首页',
-            url: '/'
-        },
-        {
-            name: '子页',
-            url: '/page'
-        }
-    ];
+var app = angular.module("app", ['_public']);
+
+app.controller('appController', ['$scope', '_public', function ($scope, _public) {
+
+    $scope.route = _public.route;
     $scope.pageName = '这是首页';
+    console.log(_public.route);
+
 }]);
 
 angular.bootstrap(document, ['app']);
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+var app = angular.module("_public", []);
+
+app.factory('_public', [function () {
+    return {
+        route: [
+            {
+                name: '首页',
+                url: '/'
+            },
+            {
+                name: '子页',
+                url: '/page'
+            }
+        ]
+    };
+}]);
 
 /***/ })
 /******/ ]);

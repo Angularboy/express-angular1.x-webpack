@@ -1,6 +1,7 @@
 var app = angular.module("app", []);
 
 app.controller('appController', ['$scope', function ($scope) {
+
     $scope.route = [
         {
             name: '首页',
@@ -12,6 +13,7 @@ app.controller('appController', ['$scope', function ($scope) {
         }
     ];
     $scope.pageName = '这是子页';
+
 }]);
 
 angular.bootstrap(document, ['app']);

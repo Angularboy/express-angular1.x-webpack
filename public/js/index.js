@@ -1,17 +1,13 @@
-var app = angular.module("app", []);
+var _public = require('./_public.js');
 
-app.controller('appController', ['$scope', function ($scope) {
-    $scope.route = [
-        {
-            name: '首页',
-            url: '/'
-        },
-        {
-            name: '子页',
-            url: '/page'
-        }
-    ];
+var app = angular.module("app", ['_public']);
+
+app.controller('appController', ['$scope', '_public', function ($scope, _public) {
+
+    $scope.route = _public.route;
     $scope.pageName = '这是首页';
+    console.log(_public.route);
+
 }]);
 
 angular.bootstrap(document, ['app']);
